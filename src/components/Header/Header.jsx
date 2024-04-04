@@ -1,5 +1,9 @@
 import './Header.css';
 
-export default function Header({ text }) {
-	return <h1>{text}</h1>;
+export default function Header({ children }) {
+	return (
+		<header>
+			{children}
+		</header>
+	);
 }

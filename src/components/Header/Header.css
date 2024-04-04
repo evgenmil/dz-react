@@ -1,7 +1,5 @@
-h1 {
-  font-weight: 600;
-  font-size: 4rem;
-  line-height: 125%;
-  letter-spacing: -0.02em;
-  color: #ebeef5;
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
 }

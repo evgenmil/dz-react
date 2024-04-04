@@ -1,13 +1,13 @@
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  border-radius: 0.75rem;
+  padding: 0 2rem;
   font-size: 1rem;
-  line-height: 150%;
-  color: #fff;
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
+  height: 3.5rem;
+  font-weight: 400;
+  color: #fff;
 }
 button:hover {
 }
@@ -18,7 +18,5 @@ button:focus-visible {
 
 .primary {
   border: 2px solid #7b6ef6;
-  border-radius: 0.75rem;
-  padding: 1rem 2rem;
   background: #7b6ef6;
 }
