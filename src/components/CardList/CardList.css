@@ -1,0 +1,34 @@
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin: 3rem 0;
+}
+.card-list > * {
+  /* flex: 0 0 23.5%; */
+}
+
+.notfound {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  max-width: 580px;
+  align-items: center;
+  margin: 3rem auto;
+}
+
+.notfound-header {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 117%;
+  letter-spacing: -0.02em;
+  color: #ebeef5;
+}
+
+.notfound-desc {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 160%;
+  text-align: center;
+  color: #767e94;
+}

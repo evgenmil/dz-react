@@ -1,0 +1,15 @@
+.add-card-link {
+  gap: 0.5rem;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: normal;
+  letter-spacing: 0.02em;
+  color: #7b6ef6;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.add-card-link:hover {
+  color: #7b6ef6;
+}
