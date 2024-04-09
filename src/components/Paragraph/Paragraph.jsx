@@ -1,9 +1,9 @@
 import './Paragraph.css';
 
-export default function Paragraph(props) {
+export default function Paragraph({ className, children }) {
 	return (
-		<p className={props.className}>
-			{props.children}
+		<p className={className}>
+			{children}
 		</p>
 	);
 

@@ -17,7 +17,7 @@
   border-radius: 0.5rem;
   padding: 0.25rem 0.5rem;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 16px;
   line-height: normal;
   color: #ffad49;
   position: absolute;
@@ -30,9 +30,8 @@
 
 .card-item__name {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 150%;
-  letter-spacing: 0.02em;
   color: #ebeef5;
 }
 

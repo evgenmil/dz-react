@@ -7,8 +7,8 @@ export default function NavBar() {
 		<div className='navbar'>
 			<a href='' className='active'>Поиск фильмов</a>
 			<a href=''>Мои фильмы <Badge type='primary' count="2" /></a>
-			<a href=''>Пользователь <Icon name="user.svg" /></a>
-			<a href=''>Войти <Icon name="login.svg" /></a>
+			<a href=''>Пользователь <Icon srcImage="/user.svg" /></a>
+			<a href=''>Войти <Icon srcImage="/login.svg" /></a>
 		</div>
 	);
 }
