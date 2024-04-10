@@ -1,0 +1,37 @@
+.text-input {
+  --width: 24rem;
+  border: 1px solid #323b54;
+  border-radius: 0.75rem;
+  padding: 0 1rem;
+  width: 24rem;
+  height: calc(4rem - 4px);
+  background-color: rgba(0, 0, 0, 0.1);
+  outline: 0;
+  font-weight: 400;
+  font-size: 0.88rem;
+  line-height: 114%;
+  color: #fff;
+}
+
+::placeholder {
+  color: #475069;
+  font-size: 0.88rem;
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: #475069;
+  font-size: 0.88rem;
+}
+
+.text-input-icon {
+  --padding-left: 3.5rem;
+  padding-left: var(--padding-left);
+  width: calc(var(--width) - var(--padding-left));
+}
+
+.text-input-icon.search {
+  background-image: url("/search.svg");
+  background-repeat: no-repeat;
+  background-position: 1rem 50%;
+}

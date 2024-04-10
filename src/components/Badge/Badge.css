@@ -1,0 +1,16 @@
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  line-height: 171%;
+  color: #fff;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.badge-primary {
+  background-color: #7b6ef6;
+}
