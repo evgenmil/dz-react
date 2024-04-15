@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+import styles from './App.module.css';
 import Button from './components/Button/Button';
 import CardList from './components/CardList/CardList';
 import H1 from './components/H1/H1';
