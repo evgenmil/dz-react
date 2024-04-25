@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import Button from './components/Button/Button';
 import CardList from './components/CardList/CardList';
 import H1 from './components/H1/H1';
