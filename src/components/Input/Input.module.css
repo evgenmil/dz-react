@@ -8,20 +8,20 @@
   background-color: rgba(0, 0, 0, 0.1);
   outline: 0;
   font-weight: 400;
-  font-size: 0.88rem;
+  font-size: 14px;
   line-height: 114%;
   color: #fff;
 }
 
 ::placeholder {
   color: #475069;
-  font-size: 0.88rem;
+  font-size: 14px;
   opacity: 1;
 }
 
 ::-ms-input-placeholder {
   color: #475069;
-  font-size: 0.88rem;
+  font-size: 14px;
 }
 
 .text-input-icon {
@@ -31,7 +31,7 @@
 }
 
 .text-input-icon.search {
-  background-image: url("/search.svg");
+  background-image: url('/search.svg');
   background-repeat: no-repeat;
   background-position: 1rem 50%;
 }

@@ -1,7 +1,14 @@
-import './Input.css';
+import classNames from 'classnames';
+import styles from './Input.module.css';
+import { forwardRef } from 'react';
 
-export default function Input({ placeholder, icon }) {
-	const cl = 'text-input' + (icon ? ' text-input-icon ' + icon : '');
+const Input = forwardRef(function Input({ placeholder, icon, ...props }, ref) {
+	const cl = classNames(styles['text-input'], {
+		[styles['text-input-icon']]: icon,
+		[styles[icon]]: icon
+	});
 
-	return <input type='text' className={cl} placeholder={placeholder} />;
-}
+	return <input {...props} type='text' ref={ref} className={cl} placeholder={placeholder} />;
+});
+
+export default Input;

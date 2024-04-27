@@ -1,12 +1,12 @@
 import CardItem from '../CardItem/CardItem';
-import './CardList.css';
+import styles from './CardList.module.css';
 
 export default function CardList({ items }) {
 	if (items.length == 0) {
 		return (
-			<div className='notfound'>
-				<div className='notfound-header'>Упс... Ничего не найдено</div>
-				<div className='notfound-desc'>Попробуйте изменить запрос или ввести более точное название фильма</div>
+			<div className={styles['notfound']}>
+				<div className={styles['notfound-header']}>Упс... Ничего не найдено</div>
+				<div className={styles['notfound-desc']}>Попробуйте изменить запрос или ввести более точное название фильма</div>
 			</div>
 		);
 	}
@@ -15,6 +15,6 @@ export default function CardList({ items }) {
 		return <CardItem key={elem.id} name={elem.name} image={elem.image} starsCount={elem.starsCount} isFavorite={elem.isFavorite} />;
 	});
 
-	return <div className='card-list'>{itemsList}</div>;
+	return <div className={styles['card-list']}>{itemsList}</div>;
 
 }

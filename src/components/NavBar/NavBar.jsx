@@ -1,14 +1,28 @@
+import { useContext } from 'react';
 import Badge from '../Badge/Badge';
 import Icon from '../Icon/Icon';
-import './NavBar.css';
+import styles from './NavBar.module.css';
+import { UserContext } from '../../context/user.context';
 
-export default function NavBar() {
+export default function NavBar({ ...props }) {
+	const { currentUser, logout } = useContext(UserContext);
+
+	const logoutHandle = (e) => {
+		e.preventDefault();
+		logout();
+	};
+
 	return (
-		<div className='navbar'>
-			<a href='' className='active'>Поиск фильмов</a>
-			<a href=''>Мои фильмы <Badge type='primary' count="2" /></a>
-			<a href=''>Пользователь <Icon srcImage="/user.svg" /></a>
-			<a href=''>Войти <Icon srcImage="/login.svg" /></a>
-		</div>
+		<div {...props} className={styles['navbar']}>
+			<a href='' className={styles['active']}>Поиск фильмов</a>
+			{currentUser &&
+				<>
+					<a href=''>Мои фильмы <Badge type='badge-primary' count="2" /></a>
+					<a href=''>{currentUser.username} <Icon srcImage="/user.svg" /></a>
+					<a href='' onClick={logoutHandle}>Выйти</a>
+				</>
+			}
+			{!currentUser && <a href=''>Войти <Icon srcImage="/login.svg" /></a>}
+		</div >
 	);
 }
