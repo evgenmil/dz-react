@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Button from './components/Button/Button';
 import CardList from './components/CardList/CardList';
-import H1 from './components/H1/H1';
 import Header from './components/Header/Header';
 import Input from './components/Input/Input';
 import Logo from './components/Logo/Logo';
@@ -11,6 +10,7 @@ import SearchGroup from './components/SearchGroup/SearchGroup';
 import { INITIAL_DATA_FILMS } from './constants';
 import LoginForm from './components/LoginForm/Loginform';
 import { UserContextProvider } from './context/user.context';
+import Title from './components/Title/Title';
 
 function App() {
 	const [filmItems, setFilmItems] = useState(INITIAL_DATA_FILMS);
@@ -22,10 +22,10 @@ function App() {
 				<NavBar />
 			</Header>
 
-			<H1 text="Вход" />
+			<Title>Вход</Title>
 			<LoginForm />
 
-			<H1 text="Поиск" />
+			<Title>Поиск</Title >
 			<Paragraph className="small">Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.</Paragraph>
 			<SearchGroup>
 				<Input placeholder="Введите название" icon="search" />

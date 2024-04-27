@@ -36,10 +36,8 @@ export const UserContextProvider = ({ children }) => {
 		}
 		if (isExistUser) {
 			setUsers([...mapItems(users, item)]);
-			setCurrentUser({ ...isExistUser, isLogined: true });
 		} else {
 			setUsers([...mapItems(users, item), item]);
-			setCurrentUser(item);
 		}
 	};
 
@@ -49,13 +47,13 @@ export const UserContextProvider = ({ children }) => {
 	};
 
 	useEffect(() => {
-		const loggedInUser = users.find(user => user.isLogined === true);
+		const loggedInUser = users?.find(user => user.isLogined === true);
 		if (loggedInUser) {
 			setCurrentUser(loggedInUser);
 		}
-	}, []);
+	}, [users]);
 
-	return <UserContext.Provider value={{ currentUser, setCurrentUser, updateUsers, logout }}>
+	return <UserContext.Provider value={{ currentUser, updateUsers, logout }}>
 		{children}
 	</UserContext.Provider>;
 }; 
