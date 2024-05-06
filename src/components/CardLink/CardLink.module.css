@@ -1,4 +1,4 @@
-.add-card-link {
+.addCardLink {
   gap: 0.5rem;
   align-items: center;
   font-weight: 600;
@@ -9,6 +9,6 @@
   cursor: pointer;
 }
 
-.add-card-link:hover {
+.addCardLink:hover {
   color: #7b6ef6;
 }

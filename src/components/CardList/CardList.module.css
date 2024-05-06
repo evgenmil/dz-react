@@ -1,14 +1,14 @@
-.card-list {
+.cardList {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 1.5rem;
   margin: 3rem 0;
 }
-.card-list > * {
+.cardList > * {
   /* flex: 0 0 23.5%; */
 }
 
-.notfound {
+.notFound {
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -17,14 +17,14 @@
   margin: 3rem auto;
 }
 
-.notfound-header {
+.header {
   font-weight: 600;
   font-size: 48px;
   line-height: 117%;
   color: #ebeef5;
 }
 
-.notfound-desc {
+.desc {
   font-weight: 400;
   font-size: 20px;
   line-height: 160%;

@@ -1,4 +1,17 @@
-export const INITIAL_STATE = {
+import { FormInputValidation, User } from '../../context/user.context';
+
+export interface State {
+	isValid: FormInputValidation,
+	values: User,
+	isFormReadyToSubmit: boolean
+}
+
+export interface Action {
+	type: 'SET_VALUE' | 'CLEAR' | 'RESET_VALIDITY' | 'LOGIN';
+	payload?: object;
+}
+
+export const INITIAL_STATE: State = {
 	isValid: {
 		username: true
 	},
@@ -9,7 +22,7 @@ export const INITIAL_STATE = {
 	isFormReadyToSubmit: false
 };
 
-export function formReducer(state, action) {
+export function formReducer(state: State, action: Action): State {
 	switch(action.type) {
 	case 'SET_VALUE':
 		return { ...state, values: { ...state.values, ...action.payload}};
@@ -18,7 +31,7 @@ export function formReducer(state, action) {
 	case 'RESET_VALIDITY':
 		return { ...state, isValid: INITIAL_STATE.isValid};
 	case 'LOGIN' : {
-		const usernameValidity = state.values.username?.trim().length;
+		const usernameValidity = Boolean(state.values.username?.trim().length);
 		return {
 			...state,
 			isValid: {

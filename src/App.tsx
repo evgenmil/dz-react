@@ -8,7 +8,7 @@ import NavBar from './components/NavBar/NavBar';
 import Paragraph from './components/Paragraph/Paragraph';
 import SearchGroup from './components/SearchGroup/SearchGroup';
 import { INITIAL_DATA_FILMS } from './constants';
-import LoginForm from './components/LoginForm/Loginform';
+import LoginForm from './components/LoginForm/Loginform.tsx';
 import { UserContextProvider } from './context/user.context';
 import Title from './components/Title/Title';
 
