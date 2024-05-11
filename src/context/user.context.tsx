@@ -51,7 +51,7 @@ export interface UserContextProviderProps {
 }
 
 export const UserContextProvider = ({ children }: UserContextProviderProps) => {
-	const [currentUser, setCurrentUser] = useState(null);
+	const [currentUser, setCurrentUser] = useState<User | null>(null);
 	const [users, setUsers] = useLocalStorage('users');
 
 	const updateUsers = (item: User) => {

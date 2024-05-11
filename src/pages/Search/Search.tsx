@@ -4,11 +4,11 @@ import Input from '../../components/Input/Input';
 import Paragraph from '../../components/Paragraph/Paragraph';
 import SearchGroup from '../../components/SearchGroup/SearchGroup';
 import Title from '../../components/Title/Title';
-import { INITIAL_DATA_FILMS } from '../../constants';
+import { FilmInterface, INITIAL_DATA_FILMS } from '../../constants';
 import { useState } from 'react';
 
 export default function Search() {
-	const [filmItems, setFilmItems] = useState(INITIAL_DATA_FILMS);
+	const [filmItems, setFilmItems] = useState<FilmInterface[]>(INITIAL_DATA_FILMS);
 
 	return <>
 		<Title>Поиск</Title >
