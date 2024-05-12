@@ -1,6 +1,6 @@
-import { LinkHTMLAttributes, ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 
-export interface CardLinkProps extends LinkHTMLAttributes<HTMLAnchorElement> {
+export interface CardLinkProps extends HTMLAttributes<HTMLElement> {
 	label: string; 
 	icon: ReactNode; 
 }

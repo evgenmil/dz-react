@@ -14,7 +14,14 @@ export default function CardList({ items, className, ...props }: CardListProps) 
 	}
 
 	const itemsList = items.map(elem => {
-		return <CardItem key={elem.id} name={elem.name} image={elem.image} starsCount={elem.starsCount} isFavorite={elem.isFavorite} />;
+		return <CardItem
+			id={elem['#IMDB_ID']}
+			key={elem['#IMDB_ID']}
+			name={elem['#TITLE']}
+			image={elem['#IMG_POSTER']}
+			starsCount={elem['#RANK']}
+			isFavorite={false}
+		/>;
 	});
 
 	return <div className={cn(styles.cardList, className)} {...props}>{itemsList}</div>;
