@@ -1,4 +1,4 @@
-.text-input {
+.textInput {
   --width: 24rem;
   border: 1px solid #323b54;
   border-radius: 0.75rem;
@@ -24,13 +24,13 @@
   font-size: 14px;
 }
 
-.text-input-icon {
+.textInputIcon {
   --padding-left: 3.5rem;
   padding-left: var(--padding-left);
   width: calc(var(--width) - var(--padding-left));
 }
 
-.text-input-icon.search {
+.textInputIcon.search {
   background-image: url('/search.svg');
   background-repeat: no-repeat;
   background-position: 1rem 50%;

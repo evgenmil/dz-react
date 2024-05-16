@@ -1,3 +1,11 @@
+export interface FilmInterface {
+	id: number;
+	name: string;
+	image: string;
+	starsCount: number;
+	isFavorite: boolean;
+}
+
 export const INITIAL_DATA_FILMS = [
 	{
 		id: 1,
