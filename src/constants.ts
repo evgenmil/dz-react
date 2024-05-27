@@ -1,14 +1,14 @@
-export interface FilmInterface {
+export interface Film {
   '#TITLE': string
   '#IMDB_ID': string
   '#RANK': number
   '#IMG_POSTER': string
 }
 
-export interface ResponseFilmInterface {
-	description: FilmInterface[]
+export interface ResponseFilm {
+	description: Film[]
 }
 
-export interface ResponseFilmDetailInterface {
-	fake: FilmInterface
+export interface ResponseFilmDetail {
+	fake: Film
 }

@@ -13,8 +13,12 @@ export function useLocalStorage(key: string) {
 		}
 	}, [key]);
 	
-	const saveData = (newData: object) => {
-		localStorage.setItem(key, JSON.stringify(newData));
+	const saveData = (newData: unknown) => {
+		if (typeof newData === 'object' && newData !== null) {
+			localStorage.setItem(key, JSON.stringify(newData));
+		} else {
+			localStorage.setItem(key, String(newData));
+		}
 		setData(newData);
 	};
 

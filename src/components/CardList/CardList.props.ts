@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react';
-import { FilmInterface } from '../../constants';
+import { Film } from '../../constants';
 
 export interface CardListProps extends HTMLAttributes<HTMLDivElement> {
-	items: FilmInterface[];
+	items: Film[];
 }

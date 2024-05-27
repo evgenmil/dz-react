@@ -2,10 +2,9 @@ import { Outlet } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Logo from '../../components/Logo/Logo';
 import NavBar from '../../components/NavBar/NavBar';
-import { UserContextProvider } from '../../context/user.context';
 
 export default function Layout() {
-	return <UserContextProvider>
+	return <>
 		<div>
 			<Header>
 				<Logo />
@@ -15,5 +14,5 @@ export default function Layout() {
 		<div>
 			<Outlet />
 		</div>
-	</UserContextProvider>;
+	</>;
 }

@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useContext, useEffect, useReducer, useRef } fro
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import styles from './LoginForm.module.css';
-import { INITIAL_STATE, formReducer } from './Loginform.state';
+import { INITIAL_STATE, TypeDispatchForm, formReducer } from './Loginform.state';
 import { FormInputValidation, UserContext } from '../../context/user.context';
 
 export default function LoginForm() {
@@ -24,7 +24,7 @@ export default function LoginForm() {
 		if (!isValid.username) {
 			focusError(isValid);
 			timerId = setTimeout(() => {
-				dispatchForm({ type: 'RESET_VALIDITY' });
+				dispatchForm({ type: TypeDispatchForm.RESET_VALIDITY });
 			}, 2000);
 		}
 
@@ -36,17 +36,17 @@ export default function LoginForm() {
 	useEffect(() => {
 		if (isFormReadyToSubmit) {
 			updateUsers(values);
-			dispatchForm({ type: 'CLEAR' });
+			dispatchForm({ type: TypeDispatchForm.CLEAR });
 		}
 	}, [isFormReadyToSubmit, values, updateUsers]);
 
 	const login = (e: FormEvent) => {
 		e.preventDefault();
-		dispatchForm({ type: 'LOGIN' });
+		dispatchForm({ type: TypeDispatchForm.LOGIN });
 	};
 
 	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-		dispatchForm({ type: 'SET_VALUE', payload: { [e.target.name]: e.target.value } });
+		dispatchForm({ type: TypeDispatchForm.SET_VALUE, payload: { [e.target.name]: e.target.value } });
 	};
 
 	return (

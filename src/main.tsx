@@ -9,6 +9,9 @@ import NotFound from './pages/NotFound/NotFound.tsx';
 import Film from './pages/Film/Film.tsx';
 import { BASE_API } from './helpers/API.ts';
 import axios from 'axios';
+import AuthLayout from './layout/Auth/AuthLayout.tsx';
+import { RequireAuth } from './helpers/RequireAuth.tsx';
+import { UserContextProvider } from './context/user.context.tsx';
 
 const root = document.getElementById('root');
 root?.classList.add(styles.app);
@@ -18,7 +21,7 @@ const Search = lazy(() => import('./pages/Search/Search'));
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Layout />,
+		element: <UserContextProvider><RequireAuth><Layout /></RequireAuth></UserContextProvider>,
 		children: [
 			{
 				path: '/',
@@ -41,18 +44,24 @@ const router = createBrowserRouter([
 				}
 			},
 			{
-				path: '/login',
-				element: <Login />
-			},
-			{
 				path: '/favorites',
 				element: <Favorites />
-			},
-			{
-				path: '*',
-				element: <NotFound />
 			}
 		]
+	},
+	{
+		path: '/auth',
+		element: <UserContextProvider><AuthLayout /></UserContextProvider>,
+		children: [
+			{
+				path: 'login',
+				element: <Login />
+			}
+		]
+	},
+	{
+		path: '*',
+		element: <NotFound />
 	}
 ]);
 

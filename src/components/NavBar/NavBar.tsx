@@ -32,7 +32,7 @@ export default function NavBar({ ...props }: HTMLAttributes<HTMLElement>) {
 					<a href='' onClick={logoutHandle}>Выйти</a>
 				</>
 			}
-			{!currentUser && <NavLink to={'/login'} className={navLinkClassName}>Войти <Icon srcImage="/login.svg" /></NavLink>}
+			{!currentUser && <NavLink to={'/auth/login'} className={navLinkClassName}>Войти <Icon srcImage="/login.svg" /></NavLink>}
 		</div >
 	);
 }

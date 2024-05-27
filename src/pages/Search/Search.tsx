@@ -5,12 +5,12 @@ import Input from '../../components/Input/Input';
 import Paragraph from '../../components/Paragraph/Paragraph';
 import SearchGroup from '../../components/SearchGroup/SearchGroup';
 import Title from '../../components/Title/Title';
-import { FilmInterface, ResponseFilmInterface } from '../../constants';
+import { Film, ResponseFilm } from '../../constants';
 import { useEffect, useState, useRef } from 'react';
 import { BASE_API } from '../../helpers/API';
 
 export default function Search() {
-	const [filmItems, setFilmItems] = useState<FilmInterface[]>([]);
+	const [filmItems, setFilmItems] = useState<Film[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string | undefined>('');
 	const searchRef = useRef<HTMLInputElement>();
@@ -18,7 +18,7 @@ export default function Search() {
 	const getFilms = async (q: string) => {
 		try {
 			setIsLoading(true);
-			const { data } = await axios.get<ResponseFilmInterface>(`${BASE_API}/?q=${q}`);
+			const { data } = await axios.get<ResponseFilm>(`${BASE_API}/?q=${q}`);
 			setFilmItems(data.description);
 			setError('');
 			setIsLoading(false);
