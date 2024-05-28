@@ -1,0 +1,1 @@
+export const BASE_API = 'https://search.imdbot.workers.dev';

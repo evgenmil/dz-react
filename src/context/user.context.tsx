@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useEffect, useState } from 'react';
 import { useLocalStorage } from '../hooks/use-localstorage.hook';
+import { useNavigate } from 'react-router-dom';
 
 export interface FormInputValidation {
 	username: boolean;
@@ -18,10 +19,10 @@ export interface UserContextProps {
 
 export const UserContext = createContext<UserContextProps>({
 	currentUser: null,
-	logout: function (): void {
+	logout: function () {
 		throw new Error('Function not implemented.');
 	},
-	updateUsers: function (user: User): void {
+	updateUsers: function (user: User) {
 		throw new Error('Function not implemented.');
 	}
 });
@@ -53,6 +54,7 @@ export interface UserContextProviderProps {
 export const UserContextProvider = ({ children }: UserContextProviderProps) => {
 	const [currentUser, setCurrentUser] = useState<User | null>(null);
 	const [users, setUsers] = useLocalStorage('users');
+	const navigate = useNavigate();
 
 	const updateUsers = (item: User) => {
 		let isExistUser = false;
@@ -64,11 +66,13 @@ export const UserContextProvider = ({ children }: UserContextProviderProps) => {
 		} else {
 			setUsers([...mapItems(users, item), item]);
 		}
+		navigate('/');
 	};
 
 	const logout = () => {
 		setCurrentUser(null);
 		setUsers([...mapItemsLogout(users)]);
+		navigate('/auth/login');
 	};
 
 	useEffect(() => {

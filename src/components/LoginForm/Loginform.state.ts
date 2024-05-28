@@ -1,5 +1,12 @@
 import { FormInputValidation, User } from '../../context/user.context';
 
+export enum TypeDispatchForm {
+	LOGIN = 'LOGIN',
+	CLEAR = 'CLEAR',
+	RESET_VALIDITY = 'RESET_VALIDITY',
+	SET_VALUE = 'SET_VALUE',
+}
+
 export interface State {
 	isValid: FormInputValidation,
 	values: User,
@@ -24,13 +31,13 @@ export const INITIAL_STATE: State = {
 
 export function formReducer(state: State, action: Action): State {
 	switch(action.type) {
-	case 'SET_VALUE':
+	case TypeDispatchForm.SET_VALUE:
 		return { ...state, values: { ...state.values, ...action.payload}};
-	case 'CLEAR':
+	case TypeDispatchForm.CLEAR:
 		return { ...state, values: INITIAL_STATE.values, isFormReadyToSubmit: false};
-	case 'RESET_VALIDITY':
+	case TypeDispatchForm.RESET_VALIDITY:
 		return { ...state, isValid: INITIAL_STATE.isValid};
-	case 'LOGIN' : {
+	case TypeDispatchForm.LOGIN : {
 		const usernameValidity = Boolean(state.values.username?.trim().length);
 		return {
 			...state,
@@ -39,6 +46,9 @@ export function formReducer(state: State, action: Action): State {
 			},
 			isFormReadyToSubmit: usernameValidity
 		};
+	}
+	default: {
+		return state;
 	}
 	}
 }
