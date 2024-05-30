@@ -9,7 +9,7 @@ export default function LoginForm() {
 	const [formData, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
 	const { isValid, isFormReadyToSubmit, values } = formData;
 	const { updateUsers } = useContext(UserContext);
-	const usernameRef = useRef<HTMLInputElement | null>();
+	const usernameRef = useRef<HTMLInputElement | null>(null);
 
 	const focusError = (isValid: FormInputValidation) => {
 		if (!isValid.username) {

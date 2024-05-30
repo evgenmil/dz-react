@@ -12,6 +12,8 @@ import axios from 'axios';
 import AuthLayout from './layout/Auth/AuthLayout.tsx';
 import { RequireAuth } from './helpers/RequireAuth.tsx';
 import { UserContextProvider } from './context/user.context.tsx';
+import { Provider } from 'react-redux';
+import { store } from './store/store.ts';
 
 const root = document.getElementById('root');
 root?.classList.add(styles.app);
@@ -67,6 +69,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(root!).render(
 	<React.StrictMode>
-		<RouterProvider router={router}></RouterProvider>
+		<Provider store={store}>
+			<RouterProvider router={router}></RouterProvider>
+		</Provider>
 	</React.StrictMode>
 );
