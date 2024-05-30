@@ -1,4 +1,4 @@
-import { MouseEvent, useContext, HTMLAttributes, useEffect } from 'react';
+import { MouseEvent, useContext, HTMLAttributes } from 'react';
 import Badge from '../Badge/Badge';
 import Icon from '../Icon/Icon';
 import styles from './NavBar.module.css';
