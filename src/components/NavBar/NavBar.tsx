@@ -5,6 +5,8 @@ import styles from './NavBar.module.css';
 import { UserContext } from '../../context/user.context';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 type NavLinkRenderProps = {
     isActive: boolean;
@@ -14,6 +16,7 @@ type NavLinkRenderProps = {
 
 export default function NavBar({ ...props }: HTMLAttributes<HTMLElement>) {
 	const { currentUser, logout } = useContext(UserContext);
+	const films = useSelector((s: RootState) => s.favorite.films);
 
 	const logoutHandle = (e: MouseEvent) => {
 		e.preventDefault();
@@ -27,7 +30,7 @@ export default function NavBar({ ...props }: HTMLAttributes<HTMLElement>) {
 			<NavLink to={'/'} className={navLinkClassName}>Поиск фильмов</NavLink>
 			{currentUser &&
 				<>
-					<NavLink to={'/favorites'} className={navLinkClassName}>Мои фильмы <Badge /></NavLink>
+					<NavLink to={'/favorites'} className={navLinkClassName}>Мои фильмы <Badge count={films.length} /></NavLink>
 					<NavLink to={'/profile'} className={navLinkClassName}>{currentUser.username} <Icon srcImage="/user.svg" /></NavLink>
 					<a href='' onClick={logoutHandle}>Выйти</a>
 				</>

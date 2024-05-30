@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useEffect, useState } from 'react';
 import { useLocalStorage } from '../hooks/use-localstorage.hook';
 import { useNavigate } from 'react-router-dom';
+import { LocalFilm } from '../components/CardItem/CardItem.props';
 
 export interface FormInputValidation {
 	username: boolean;
@@ -9,6 +10,7 @@ export interface FormInputValidation {
 export interface User {
 	username: string;
 	isLogined: boolean;
+	films: LocalFilm[] | null;
 }
 
 export interface UserContextProps {
