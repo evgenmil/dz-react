@@ -12,3 +12,9 @@
 .addCardLink:hover {
   color: #7b6ef6;
 }
+
+.isFavorite,
+.isFavorite:hover {
+  color: #37d8a7;
+}
+

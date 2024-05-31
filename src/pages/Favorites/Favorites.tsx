@@ -1,16 +1,26 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CardList from '../../components/CardList/CardList';
 import Title from '../../components/Title/Title';
-import { USERS_FILM_PERSISTANT, UserFilms } from '../../store/favorite.slice';
-import { loadState } from '../../store/storage';
 import { Film } from '../../constants';
-import { UserContext } from '../../context/user.context';
 import { LocalFilm } from '../../components/CardItem/CardItem.props';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 export default function Favorites() {
-	const { currentUser } = useContext(UserContext);
+	const currentUser = useSelector((s: RootState) => s.user.currentUser);
+	const userFilms = useSelector((s: RootState) => s.favorite.userFilms);
 	const [filmItems, setFilmItems] = useState<Film[]>([]);
-	const userFilm = loadState<UserFilms[]>(USERS_FILM_PERSISTANT);
+
+	useEffect(() => {
+		if (userFilms && currentUser) {
+			const films = userFilms.find(i => i.username === currentUser.username)?.films;
+			if (films) {
+				setFilmItems(convertToFilmArray(films));
+			} else {
+				setFilmItems([]);
+			}
+		}
+	}, [currentUser, userFilms]);
 
 	const convertToFilmArray = (localFilms: LocalFilm[]): Film[] => {
 		return localFilms.map(localFilm => ({
@@ -21,17 +31,8 @@ export default function Favorites() {
 		}));
 	};
 
-	useEffect(() => {
-		if (userFilm && currentUser) {
-			const films = userFilm.find(i => i.username === currentUser.username)?.films;
-			if (films) {
-				setFilmItems(convertToFilmArray(films));
-			}
-		}
-	}, [currentUser, userFilm]);
-
 	return <>
-		<Title>Favorites</Title>
+		<Title>Избранное</Title>
 		{filmItems && <CardList items={filmItems}></CardList>}
 	</>;
 }

@@ -5,11 +5,9 @@ import styles from './CardList.module.css';
 import { CardListProps } from './CardList.props';
 import cn from 'classnames';
 import { RootState } from '../../store/store';
-import { useContext } from 'react';
-import { UserContext } from '../../context/user.context';
 
 export default function CardList({ items, className, ...props }: CardListProps) {
-	const { currentUser } = useContext(UserContext);
+	const currentUser = useSelector((s: RootState) => s.user.currentUser);
 	const films = useSelector((s: RootState) => s.favorite.userFilms);
 	
 	if (items.length == 0) {
