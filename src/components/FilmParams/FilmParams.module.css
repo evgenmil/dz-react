@@ -1,0 +1,25 @@
+.params {
+	display: flex;
+	gap: 24px;
+	flex-direction: column;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 160%;
+	color: #8e95a9;
+}
+
+.ratingFavorite {
+	display: flex;
+	gap: 24px;
+}
+
+.paramLabel {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+	color: #767e94;
+}
+
+.paramValue {
+	color: #c3c8d4;
+}

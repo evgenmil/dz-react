@@ -11,7 +11,9 @@ import { BASE_API } from './helpers/API.ts';
 import axios from 'axios';
 import AuthLayout from './layout/Auth/AuthLayout.tsx';
 import { RequireAuth } from './helpers/RequireAuth.tsx';
-import { UserContextProvider } from './context/user.context.tsx';
+import { Provider } from 'react-redux';
+import { store } from './store/store.ts';
+import Profile from './pages/Profile/Profile.tsx';
 
 const root = document.getElementById('root');
 root?.classList.add(styles.app);
@@ -21,7 +23,7 @@ const Search = lazy(() => import('./pages/Search/Search'));
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <UserContextProvider><RequireAuth><Layout /></RequireAuth></UserContextProvider>,
+		element: <RequireAuth><Layout /></RequireAuth>,
 		children: [
 			{
 				path: '/',
@@ -46,12 +48,16 @@ const router = createBrowserRouter([
 			{
 				path: '/favorites',
 				element: <Favorites />
+			},
+			{
+				path: '/profile',
+				element: <Profile />
 			}
 		]
 	},
 	{
 		path: '/auth',
-		element: <UserContextProvider><AuthLayout /></UserContextProvider>,
+		element: <AuthLayout />,
 		children: [
 			{
 				path: 'login',
@@ -67,6 +73,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(root!).render(
 	<React.StrictMode>
-		<RouterProvider router={router}></RouterProvider>
+		<Provider store={store}>
+			<RouterProvider router={router}></RouterProvider>
+		</Provider>
 	</React.StrictMode>
 );

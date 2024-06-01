@@ -13,7 +13,7 @@ export default function Search() {
 	const [filmItems, setFilmItems] = useState<Film[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string | undefined>('');
-	const searchRef = useRef<HTMLInputElement>();
+	const searchRef = useRef<HTMLInputElement | null>(null);
 
 	const getFilms = async (q: string) => {
 		try {

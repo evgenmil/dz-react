@@ -1,0 +1,54 @@
+.wrapFilm {
+	display: flex;
+	flex-direction: row;
+	gap: 80px;
+	margin-bottom: 35px;
+}
+
+.small {
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 133%;
+	color: #beb7fb;
+}
+.title {
+	font-weight: 600;
+	font-size: 32px;
+	line-height: 125%;
+	color: #ebeef5;
+}
+.label {
+	font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+color: #767e94;
+	margin-bottom: 15px;
+}
+.review {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+.reviewHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.reviewName {
+	font-weight: 700;
+font-size: 20px;
+line-height: 160%;
+color: #c3c8d4;
+}
+.reviewDate {
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+color: #767e94;
+}
+.reviewBody {
+font-weight: 400;
+font-size: 20px;
+line-height: 160%;
+color: #8e95a9;
+}
